@@ -39,7 +39,7 @@ class GeneratedHash(object):
         for num_elements in range(min_combo_selections, len(self.data_dict.keys())+1):
 
             # Get the combination of num_elements values
-            for combination in itertools.combinations(current_keys, num_elements):
+            for combination in itertools.permutations(current_keys, num_elements):
 
                 combo_fields = [ self.data_dict[elem] for elem in combination]
                 joined_combo = divider.join(combo_fields)
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         description='Generate a series of hashes based on key-value datasets')
     parser.add_argument("--hashfn", "-H", dest="hashfn", action="store",
                         help="Hashing function(s) to use.", choices=HASH_TYPES,
-                        nargs="+", default="md5")
+                        nargs="+", default=["md5"])
     parser.add_argument("--json", "-j", dest="json", action="store_true",
                         help="Parse STDIN as JSON key-value data")
     parser.add_argument("--min-combinations", "-m", dest="min_combo_selection",

@@ -5,7 +5,7 @@ Basic overview of stuff that remains to be done.
 
 ** TODO Support for verbose output that explains which combo of hash has been generated
 ** TODO support for selecting the password field for additional hashing/encryption (any point?)
-** TODO Proper permutations - current permutations are limited to order
+** DONE Proper permutations - current permutations are limited to order
 ** TODO Test for generate_hashes
 ** DONE Configurable hash divider
 ** TODO JSON stdin reading
