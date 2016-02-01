@@ -7,7 +7,7 @@ import itertools
 
 from tests import test_data_hash
 
-HASH_TYPES = ["md5", "sha1", "sha256", "sha384", "sha512"]
+AVAILABLE_HASH_TYPES = ["md5", "sha1", "sha256", "sha384", "sha512", "ALL"]
 
 class GeneratedHash(object):
 
@@ -20,7 +20,10 @@ class GeneratedHash(object):
          Nothing
         """
         self.data_dict = data_dict
-        self.hash_types = hash_types
+        if hash_types == ["ALL"]:
+            self.hash_types = [ hashfn for hashfn in AVAILABLE_HASH_TYPES if hashfn != "ALL" ]
+        else:
+            self.hash_types = hash_types
 
     def generate_hashes(self, divider="", min_combo_selections=2):
         """ Generate and return all the hashes.
@@ -65,7 +68,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Generate a series of hashes based on key-value datasets')
     parser.add_argument("--hashfn", "-H", dest="hashfn", action="store",
-                        help="Hashing function(s) to use.", choices=HASH_TYPES,
+                        help="Hashing function(s) to use.", choices=AVAILABLE_HASH_TYPES,
                         nargs="+", default=["md5"])
     parser.add_argument("--json", "-j", dest="json", action="store_true",
                         help="Parse STDIN as JSON key-value data")
