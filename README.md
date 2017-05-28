@@ -1,7 +1,7 @@
 Approxihash
 ========
 
-Approxihash is a simple too for generation of lists of hashes based on
+Approxihash is a simple tool for generation of lists of hashes based on
 arbitrary key-value data. The initial usecase for this tool was for
 testing weak hashing mechanisms in keys and identifiers used on
 web applications.

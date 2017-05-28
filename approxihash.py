@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import sys
+import json
 import itertools
 
 from tests import test_data_hash
@@ -77,7 +78,7 @@ if __name__ == "__main__":
                         help="Minimum number of items to pick combinations of")
     parser.add_argument("--keyval", "-k", dest="keyvals", action="store", nargs="+",
                         help="A key:value pair.", default=[])
-    parser.add_argument("--divier", "-D", dest="divider", action="store", default="",
+    parser.add_argument("--divider", "-D", dest="divider", action="store", default="",
                         help="Divider placed between attributes when generating hashes.")
     parser.add_argument("--verbose", "-v", dest="verbose", action="store_true",
                         help="Annotate hashes with the fields used to generate them",
